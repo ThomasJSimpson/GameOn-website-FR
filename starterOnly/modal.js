@@ -41,3 +41,7 @@ function escapeModal(e) {
   }
 }
 
+var inputFirst = document.getElementById('first');
+var inputLast = document.getElementById('last');
+var inputEmail = document.getElementById('email');
+var inputBirthdate = document.getElementById('birthdate');
