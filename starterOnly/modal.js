@@ -43,14 +43,14 @@ function escapeModal(e) {
 
 // variables inputs modal form
 
-/* var btnSubmit = document.querySelector('.btn-submit')
- */
+
 var form = document.querySelector('.form');
 var inputFirst = document.getElementById('first');
 var inputLast = document.getElementById('last');
 var inputEmail = document.getElementById('email');
 var inputBirthdate = document.getElementById('birthdate');
 var inputContest = document.getElementById('quantity')
+
 
 // RegExps
 
@@ -65,79 +65,153 @@ var emailValid;
 var birthdateValid;
 var contestValid;
 
+// Eventslisteners
+
 inputFirst.addEventListener("change", checkFirst);
 inputLast.addEventListener("change", checkLast);
 inputEmail.addEventListener("change", checkEmail);
 inputBirthdate.addEventListener("change", checkBirthdate);
 inputContest.addEventListener("change", checkContest);
 
+
+// Functions
+
 function checkFirst() {
   if (inputFirst.value.trim() !== "" && nameRegEx.test(inputFirst.value)){
     firstValid = true;
-    alert(firstValid);
   } else {
     firstValid = false;
-    alert(firstValid);
   }
 }
 
 function checkLast() {
   if (inputLast.value.trim() !== "" && nameRegEx.test(inputLast.value)){
     lastValid = true;
-    alert(lastValid);
   } else {
     lastValid = false;
-    alert(lastValid);
   }
 }
 
 function checkEmail(){
   if (inputEmail.value.trim() !== "" && emailRegEx.test(inputEmail.value)){
     emailValid = true;
-    alert(emailValid);
   } else {
     emailValid = false;
-    alert(emailValid);
   }
 }
 
 function checkBirthdate(){
   if (inputBirthdate.value !== ""){
     birthdateValid = true;
-    alert(birthdateValid);
   } else {
     birthdateValid = false;
-    alert(birthdateValid);
   }
 }
 
 function checkContest(){
   if (inputContest.value.trim() !== "" && digitRegEx.test(inputContest.value)){
     contestValid = true;
-    alert(contestValid);
   } else {
     contestValid = false;
-    alert(contestValid);
+  }
+}
+
+// Test de vérification Villes
+
+var cityValid;
+
+var inputCity1 = document.getElementById('location1');
+inputCity1.addEventListener("change", checkCity);
+
+var inputCity2 = document.getElementById('location2');
+inputCity2.addEventListener("change", checkCity);
+
+var inputCity3 = document.getElementById('location3');
+inputCity3.addEventListener("change", checkCity);
+
+var inputCity4 = document.getElementById('location4');
+inputCity4.addEventListener("change", checkCity);
+
+var inputCity5 = document.getElementById('location5');
+inputCity5.addEventListener("change", checkCity);
+
+var inputCity6 = document.getElementById('location6');
+inputCity6.addEventListener("change", checkCity);
+
+function checkCity (){
+if (inputCity1.checked){
+
+  cityValid = true;
+  alert(cityValid);
+  
+} else if (inputCity2.checked){
+
+  cityValid = true;
+  alert(cityValid);
+} else if (inputCity3.checked){
+
+  cityValid = true;
+  alert(cityValid);
+} else if (inputCity4.checked){
+
+  cityValid = true;
+  alert(cityValid);
+} else if (inputCity5.checked){
+
+  cityValid = true;
+  alert(cityValid);
+} else if (inputCity6.checked){
+
+  cityValid = true;
+  alert(cityValid);
+} else {
+
+  cityValid = false;
+  alert(cityValid);
+}
+}
+
+// Terms validation
+
+var termValid;
+var inputTerm = document.getElementById('checkbox1');
+inputTerm.addEventListener("change", checkTerm);
+
+function checkTerm (){
+  if (inputTerm.checked){
+    termValid = true;
+    alert(termValid);
+  } else {
+    termValid = false;
+  }
+}
+
+
+//checkDate
+dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+
+
+function checkBirthdate(){
+  if ((inputBirthdate.value !== "") && dateRegEx.test(inputBirthdate.value)) {
+    birthdateValid = true;
+  } else{
+    birthdateValid = false;
   }
 }
 
 
 
-
-
-
+// Validation all input before submit
 
 form.addEventListener('submit', function(e){
   
-  if (firstValid && lastValid && emailValid && contestValid){
+  if (firstValid && lastValid && emailValid &&  birthdateValid && contestValid && cityValid && termValid){
     SubmitEvent;
   } else {
     e.preventDefault();
     alert("Veuillez remplir correctement les champs nécessaires.")
   }
 })
+
 /* 
-(4) Pour le nombre de concours, une valeur numérique est saisie.
-(5) Un bouton radio est sélectionné.
-(6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
 Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation. */
