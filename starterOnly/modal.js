@@ -44,26 +44,26 @@ function escapeModal(e) {
 // variables inputs modal form
 
 
-var form = document.querySelector('.form');
-var inputFirst = document.getElementById('first');
-var inputLast = document.getElementById('last');
-var inputEmail = document.getElementById('email');
-var inputBirthdate = document.getElementById('birthdate');
-var inputContest = document.getElementById('quantity')
-
+let form = document.querySelector('.form');
+let inputFirst = document.getElementById('first');
+let inputLast = document.getElementById('last');
+let inputEmail = document.getElementById('email');
+let inputBirthdate = document.getElementById('birthdate');
+let inputContest = document.getElementById('quantity')
+let test = document.getElementsBy;
 
 // RegExps
 
-var nameRegEx = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
-var emailRegEx = /\S+@\S+\.\S+/;
-var digitRegEx = /[0-9]+/;
+const nameRegEx = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+const emailRegEx = /\S+@\S+\.\S+/;
+const digitRegEx = /[0-9]+/;
 
 
-var firstValid;
-var lastValid;
-var emailValid;
-var birthdateValid;
-var contestValid;
+let firstValid;
+let lastValid;
+let emailValid;
+let birthdateValid;
+let contestValid;
 
 // Eventslisteners
 
@@ -79,110 +79,147 @@ inputContest.addEventListener("change", checkContest);
 function checkFirst() {
   if (inputFirst.value.trim() !== "" && nameRegEx.test(inputFirst.value)){
     firstValid = true;
+    inputFirst.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     firstValid = false;
+    inputFirst.parentElement.setAttribute("data-error-visible", "true");
   }
 }
 
 function checkLast() {
   if (inputLast.value.trim() !== "" && nameRegEx.test(inputLast.value)){
     lastValid = true;
+    inputLast.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     lastValid = false;
+    inputLast.parentElement.setAttribute("data-error-visible", "true");
+
   }
 }
 
 function checkEmail(){
   if (inputEmail.value.trim() !== "" && emailRegEx.test(inputEmail.value)){
     emailValid = true;
+    inputEmail.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     emailValid = false;
+    inputEmail.parentElement.setAttribute("data-error-visible", "true");
+
   }
 }
 
 function checkBirthdate(){
   if (inputBirthdate.value !== ""){
     birthdateValid = true;
+    inputBirthdate.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     birthdateValid = false;
+    inputBirthdate.parentElement.setAttribute("data-error-visible", "true");
+
   }
 }
 
 function checkContest(){
   if (inputContest.value.trim() !== "" && digitRegEx.test(inputContest.value)){
     contestValid = true;
+    inputContest.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     contestValid = false;
+    inputContest.parentElement.setAttribute("data-error-visible", "true");
+
   }
 }
 
+
+
+
+
 // Test de vérification Villes
 
-var cityValid;
+let cityValid;
 
-var inputCity1 = document.getElementById('location1');
+let inputCity1 = document.getElementById('location1');
 inputCity1.addEventListener("change", checkCity);
 
-var inputCity2 = document.getElementById('location2');
+let inputCity2 = document.getElementById('location2');
 inputCity2.addEventListener("change", checkCity);
 
-var inputCity3 = document.getElementById('location3');
+let inputCity3 = document.getElementById('location3');
 inputCity3.addEventListener("change", checkCity);
 
-var inputCity4 = document.getElementById('location4');
+let inputCity4 = document.getElementById('location4');
 inputCity4.addEventListener("change", checkCity);
 
-var inputCity5 = document.getElementById('location5');
+let inputCity5 = document.getElementById('location5');
 inputCity5.addEventListener("change", checkCity);
 
-var inputCity6 = document.getElementById('location6');
+let inputCity6 = document.getElementById('location6');
 inputCity6.addEventListener("change", checkCity);
 
 function checkCity (){
 if (inputCity1.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity1.parentElement.setAttribute("data-error-visible", "false");
+
+  
   
 } else if (inputCity2.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity2.parentElement.setAttribute("data-error-visible", "false");
+
+  
 } else if (inputCity3.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity3.parentElement.setAttribute("data-error-visible", "false");
+
+  
 } else if (inputCity4.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity4.parentElement.setAttribute("data-error-visible", "false");
+
+
 } else if (inputCity5.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity5.parentElement.setAttribute("data-error-visible", "false");
+
+
 } else if (inputCity6.checked){
 
   cityValid = true;
-  alert(cityValid);
+  inputCity6.parentElement.setAttribute("data-error-visible", "false");
+
 } else {
 
   cityValid = false;
-  alert(cityValid);
+  inputCity1.parentElement.setAttribute("data-error-visible", "true");
+
 }
 }
 
 // Terms validation
 
-var termValid;
-var inputTerm = document.getElementById('checkbox1');
+let termValid;
+let inputTerm = document.getElementById('checkbox1');
 inputTerm.addEventListener("change", checkTerm);
 
 function checkTerm (){
   if (inputTerm.checked){
     termValid = true;
-    alert(termValid);
+    inputTerm.parentElement.setAttribute("data-error-visible", "false");
+
   } else {
     termValid = false;
+    inputTerm.parentElement.setAttribute("data-error-visible", "true");
   }
 }
 
@@ -194,11 +231,14 @@ dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
 function checkBirthdate(){
   if ((inputBirthdate.value !== "") && dateRegEx.test(inputBirthdate.value)) {
     birthdateValid = true;
+    inputBirthdate.parentElement.setAttribute("data-error-visible", "false");
+
   } else{
-    birthdateValid = false;
+    birthdateValid = false;   
+    inputBirthdate.parentElement.setAttribute("data-error-visible", "true");
+   
   }
 }
-
 
 
 // Validation all input before submit
@@ -209,9 +249,13 @@ form.addEventListener('submit', function(e){
     SubmitEvent;
   } else {
     e.preventDefault();
-    alert("Veuillez remplir correctement les champs nécessaires.")
+    checkFirst();
+    checkLast();
+    checkEmail();
+    checkBirthdate();
+    checkContest();
+    checkCity();
+    checkTerm();
   }
 })
 
-/* 
-Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation. */
