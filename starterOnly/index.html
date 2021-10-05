@@ -14,21 +14,20 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
+        <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      </div>
+      <div class="main-navbar">
       
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
-    </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -60,8 +59,8 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
-              class="form"
+              onsubmit="return validate();"             
+              style="display:block;"
             >
               <div
                 class="formData" data-error="Veuillez entrer 2 lettres ou plus pour le champ du nom. (pas de chiffre)"  data-error-visible="false">
@@ -87,7 +86,7 @@
                 /><br>
               </div>
               <div
-                class="formData" data-error="Vous devez entrer une adresse email valide." data-error-visible="false">
+                class="formData" id="test" data-error="Vous devez entrer une adresse email valide." data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
@@ -111,9 +110,9 @@
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
-              <p class="text-label">Quelles villes ?</p>
+              <p  class="text-label formData">Quelle location?</p>
               <div
-                class="formData" data-error="Vous devez choisir une option." data-error-visible="false">
+                class="formData"  data-error="Vous devez choisir une option." data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -188,7 +187,7 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
+                  
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
@@ -207,11 +206,18 @@
                 type="submit"
                 class="button"
                 value="C'est parti"
-                
+                id="btn-form"
               />
             </form>
+            <div class="thanks" style="display:none;">
+              <div class="thanks-message">
+                Merci !<br/>
+                Votre réservation a bien été prise en compte.
+              </div>
+              <button class="btn-submit closeModal" id="btn-thanks" type="button">Fermer</button>
           </div>
         </div>
+
       </div>
     </main>
     <footer>

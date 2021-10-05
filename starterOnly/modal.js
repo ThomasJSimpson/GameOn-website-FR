@@ -13,6 +13,9 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
+
+
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -23,6 +26,7 @@ closeBtn.addEventListener("click", closeModal);
 // launch modal form
 function launchModal() {
   modalBg.style.display = "block";
+  formData.hidden = true;
 }
 
 // close modal form
@@ -44,13 +48,13 @@ function escapeModal(e) {
 // variables inputs modal form
 
 
-let form = document.querySelector('.form');
+let form = document.querySelector('[name="reserve"]');
 let inputFirst = document.getElementById('first');
 let inputLast = document.getElementById('last');
 let inputEmail = document.getElementById('email');
 let inputBirthdate = document.getElementById('birthdate');
 let inputContest = document.getElementById('quantity')
-let test = document.getElementsBy;
+
 
 // RegExps
 
@@ -241,12 +245,24 @@ function checkBirthdate(){
 }
 
 
+
+let btnForm = document.getElementById('btn-form');
+let btnThanks = document.getElementById('btn-thanks');
+let thanksForm = document.querySelector('.thanks');
+
 // Validation all input before submit
 
 form.addEventListener('submit', function(e){
   
   if (firstValid && lastValid && emailValid &&  birthdateValid && contestValid && cityValid && termValid){
+    e.preventDefault();
     SubmitEvent;
+    form.style.display = 'none';
+    thanksForm.style.display ='flex';
+    
+    
+
+
   } else {
     e.preventDefault();
     checkFirst();
@@ -256,6 +272,13 @@ form.addEventListener('submit', function(e){
     checkContest();
     checkCity();
     checkTerm();
+
+    
+    
   }
 })
 
+
+
+
+btnThanks.addEventListener('click', closeModal);
