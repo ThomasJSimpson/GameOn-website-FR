@@ -72,7 +72,6 @@ let cityValid;
 let contestValid;
 let termValid;
 
-
 // Eventslisteners all inputs
 
 inputFirst.addEventListener("change", checkFirst);
@@ -145,18 +144,18 @@ function checkContest() {
 
 // Functions verification City
 
-function checkCity (){
-  for(var i=0; i < inputCity.length; i++) {
-    if(inputCity[i].checked){
+function checkCity() {
+  for (var i = 0; i < inputCity.length; i++) {
+    if (inputCity[i].checked) {
       cityValid = true;
       inputCity[i].parentElement.setAttribute("data-error-visible", "false");
       break;
     } else {
       cityValid = false;
       inputCity[i].parentElement.setAttribute("data-error-visible", "true");
-      }
     }
   }
+}
 
 // Functions verification Terms of service
 
@@ -169,7 +168,6 @@ function checkTerm() {
     inputTerm.parentElement.setAttribute("data-error-visible", "true");
   }
 }
-
 
 // Validation all input before submition
 
@@ -189,8 +187,6 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-
 // Close button thanks modal
 
 btnThanks.addEventListener("click", closeModal);
-

@@ -27,10 +27,6 @@ p {
   padding: 0.5vw;
 }
 
-/* img {
-  padding-right: 1rem;
-} */
-
 .topnav {
   overflow: hidden;
   margin-top: 50px;
@@ -147,7 +143,6 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  
 }
 
 .modal-body {
@@ -497,8 +492,6 @@ footer {
   .hero-text {
     font-size: 20px;
   }
-
-
 }
 
 @media screen and (max-width: 799px) {
@@ -555,7 +548,7 @@ footer {
   .topnav a.icon:active {
     color: white;
   }
-  
+
   .topnav.responsive {
     position: relative;
   }
@@ -703,24 +696,24 @@ footer {
     font-weight: 500;
     font-size: 47px;
     line-height: 62px;
-}
-.hero-text {
-  margin-top: 26px;
-  font-size: 13px;
-  line-height: 17px;
-}
+  }
+  .hero-text {
+    margin-top: 26px;
+    font-size: 13px;
+    line-height: 17px;
+  }
 
   .btn-signup {
     transform: scale(0.5);
   }
 
-  .bground{
+  .bground {
     background-color: unset;
   }
   .content {
     min-width: 375px;
     margin-top: 24%;
-}
+  }
   .copyrights {
     font-family: Roboto;
     font-style: normal;
@@ -728,7 +721,7 @@ footer {
     font-size: 10px;
     line-height: 12px;
     margin: 0 0 30px;
-}
+  }
 }
 
 @keyframes modalopen {
