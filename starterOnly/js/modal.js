@@ -57,9 +57,9 @@ const thanksForm = document.querySelector(".thanks");
 
 // RegExps
 
-const nameRegEx = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+const nameRegEx = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/; 
 const emailRegEx = /\S+@\S+\.\S+/;
-const digitRegEx = /[0-9]+/;
+const digitRegEx = /^[0-9]+$/;
 const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 
 // variables validation required true
@@ -130,6 +130,7 @@ function checkBirthdate() {
     inputBirthdate.parentElement.setAttribute("data-error-visible", "true");
   }
 }
+
 // Functions verification number of contest
 
 function checkContest() {
@@ -145,17 +146,19 @@ function checkContest() {
 // Functions verification City
 
 function checkCity() {
-  for (var i = 0; i < inputCity.length; i++) {
-    if (inputCity[i].checked) {
-      cityValid = true;
-      inputCity[i].parentElement.setAttribute("data-error-visible", "false");
-      break;
-    } else {
-      cityValid = false;
-      inputCity[i].parentElement.setAttribute("data-error-visible", "true");
+  for (var city of inputCity) {
+    if (cityValid !== true) {
+      if (city.checked) {
+        cityValid = true;
+        city.parentElement.setAttribute("data-error-visible", "false");
+      } else {
+        cityValid = false;
+        city.parentElement.setAttribute("data-error-visible", "true");
+      }
     }
   }
 }
+
 
 // Functions verification Terms of service
 
